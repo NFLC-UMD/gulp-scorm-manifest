@@ -91,6 +91,8 @@ module.exports = function(options) {
     xmlObj.manifest.resources = {
       'resource': xmlTokens.fileArr
     };
+    // TODO this is where you would add the manifest information
+    // Example: xmlObj.manifest.<path to property> = <approprate_data>
     var xmlDoc = xmlBuilder.buildObject(xmlObj);
 
     var manifestFile  = new gutil.File({
@@ -101,6 +103,7 @@ module.exports = function(options) {
     });
 
     this.push(manifestFile);
+    // TODO add the extra scorm files and push like above
     gutil.log('Generated', gutil.colors.blue(fileName));
 
     return cb();
