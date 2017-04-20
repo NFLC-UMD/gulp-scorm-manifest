@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<manifest identifier="Test101" version="1.2" 
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" 
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" 
+  xmlns:c2lcp="http://www.sumtotalsystems.com/xsd/c2l_cp_rootv1p1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.sumtotalsystems.com/xsd/c2l_cp_rootv1p1 c2l_cp_rootv1p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <lom 
+      xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" 
+      xmlns:c2lmd="http://www.sumtotalsystems.com/xsd/c2l_md_rootv1p1" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.sumtotalsystems.com/xsd/c2l_md_rootv1p1 c2l_md_rootv1p1.xsd">
+      <!-- END  correct xmlns references-->
+      <general>
+        <title>
+          <langstring xml:lang="x-none">Assessment Object</langstring>
+        </title>
+        <catalogentry>
+          <!-- Change Catalog Data -->
+          <catalog>LangNet</catalog>
+          <entry>
+            <langstring xml:lang="x-none">t14tur01</langstring>
+          </entry>
+        </catalogentry>
+        <language>en</language>
+        <description>
+          <langstring xml:lang="x-none">This Assessment Object will help you assess your listening comprehension in French. The passages and questions are appropriate for ILR Level 3. </langstring>
+        </description>
+        <keyword>
+          <langstring xml:lang="x-none">Thematic Unit: Social Media in Turkey</langstring>
+        </keyword>
+        <keyword>
+          <langstring xml:lang="x-none">Turkish</langstring>
+        </keyword>
+        <keyword>
+          <langstring xml:lang="x-none">Thematic Unit</langstring>
+        </keyword>
+        <aggregationlevel>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <!-- Change Aggregation Level to 3 -->
+          <value>
+            <langstring xml:lang="x-none">3</langstring>
+          </value>
+        </aggregationlevel>
+        <!-- Client Custom Extensions (Be sure to change Language)-->
+        <c2lmd:c2lextensionmd>
+          <c2lmd:lotype>Assessment Object</c2lmd:lotype>
+          <!-- TODO: Get this data from JSON -->
+          <c2lmd:modality>Reading</c2lmd:modality>
+          <c2lmd:proflevel>2+/3</c2lmd:proflevel>
+          <c2lmd:language>Turkish</c2lmd:language>
+          <c2lmd:topic>Defense/Security</c2lmd:topic>
+          <c2lmd:classification>UNCLASSIFIED</c2lmd:classification>
+        </c2lmd:c2lextensionmd>
+        <!-- END Client Custom Extensions -->
+      </general>
+      <lifecycle>
+        <version>
+          <langstring xml:lang="x-none">1.0</langstring>
+        </version>
+        <status>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Final</langstring>
+          </value>
+        </status>
+        <contribute>
+          <role>
+            <source>
+              <langstring xml:lang="x-none">LOMv1.0</langstring>
+            </source>
+            <value>
+              <!-- DO NOT Change Author to Creator or it will fail adl-->
+              <langstring xml:lang="x-none">Author</langstring>
+            </value>
+          </role>
+          <centity>
+            <vcard>          BEGIN:vcard          ORG:National Foreign Language Center          END:vcard         </vcard>
+          </centity>
+          <date>
+            <datetime>2015-05-26</datetime>
+          </date>
+        </contribute>
+      </lifecycle>
+      <metametadata>
+        <metadatascheme>ADL SCORM(TM) 1.2</metadatascheme>
+      </metametadata>
+      <technical>
+        <format>text/html</format>
+        <location type="URI">index.html</location>
+        <requirement>
+          <type>
+            <source>
+              <langstring xml:lang="x-none">LOMv1.0</langstring>
+            </source>
+            <value>
+              <langstring xml:lang="x-none">Browser</langstring>
+            </value>
+          </type>
+          <name>
+            <source>
+              <langstring xml:lang="x-none">LOMv1.0</langstring>
+            </source>
+            <value>
+              <langstring xml:lang="x-none">Microsoft Internet Explorer</langstring>
+            </value>
+          </name>
+          <minimumversion>10.0</minimumversion>
+        </requirement>
+        <!-- Change Platform Requirements -->
+        <otherplatformrequirements>
+          <langstring xml:lang="x-none">Windows PC with IE 10 and up or Firefox 30 and up, mp3 media player, speakers or headphones.</langstring>
+        </otherplatformrequirements>
+      </technical>
+      <!-- Add Educational Info -->
+      <educational>
+        <interactivitytype>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Mixed</langstring>
+          </value>
+        </interactivitytype>
+        <learningresourcetype>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none"> Self Assesment</langstring>
+          </value>
+        </learningresourcetype>
+        <interactivitylevel>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">medium</langstring>
+          </value>
+        </interactivitylevel>
+        <intendedenduserrole>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Learner</langstring>
+          </value>
+        </intendedenduserrole>
+        <context>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Higher Education</langstring>
+          </value>
+        </context>
+        <context>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Professional Formation</langstring>
+          </value>
+        </context>
+        <typicalagerange>
+          <langstring xml:lang="x-none">adult learner</langstring>
+        </typicalagerange>
+        <typicallearningtime>
+          <datetime>01:00:00</datetime>
+        </typicallearningtime>
+        <language>en</language>
+      </educational>
+      <!-- END Add Educational Info -->
+      <rights>
+        <cost>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">no</langstring>
+          </value>
+        </cost>
+        <copyrightandotherrestrictions>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">no</langstring>
+          </value>
+        </copyrightandotherrestrictions>
+        <!-- Add TTO Info (Make sure correct TTO number)-->
+        <description>
+          <langstring xml:lang="x-none">Created under H98230-10-C-0151 FY14TTO3</langstring>
+        </description>
+        <!-- END Add TTO Info -->
+      </rights>
+      <classification>
+        <purpose>
+          <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+          </source>
+          <value>
+            <!--"Discipline" Dialogue - Lectora -->
+            <langstring xml:lang="x-none">Security Level</langstring>
+          </value>
+        </purpose>
+        <!--Add taxonpath / Replace description and first keyword-->
+        <taxonpath>
+          <source>
+            <langstring xml:lang="x-none">ADL/DOD Security Taxonomy</langstring>
+          </source>
+          <taxon>
+            <entry>
+              <langstring xml:lang="x-none">unclassified</langstring>
+            </entry>
+          </taxon>
+        </taxonpath>
+        <description>
+          <langstring xml:lang="x-none">Security classification of the learning material</langstring>
+        </description>
+        <keyword>
+          <langstring xml:lang="x-none">unclassified</langstring>
+          <!--END Add taxonpath /Replace description and first keyword-->
+        </keyword>
+        <keyword>
+          <langstring xml:lang="x-none">Turkish</langstring>
+        </keyword>
+        <keyword>
+          <langstring xml:lang="x-none">Thematic Unit</langstring>
+        </keyword>
+      </classification>
+    </lom>
+  </metadata>
+  <organizations default="Test101-org">
+    <organization identifier="Test101-org">
+      <title>Dummy Test</title>
+      <item identifier="item_1" identifierref="resource_1">
+        <title>AngularJS Test module</title>
+      </item>
+    </organization>
+  </organizations>
+
+  <c2lcp:ItemDataExtra>
+    <c2lcp:ItemData Type="Course">
+      <c2lcp:ItemSpecificData>
+        <c2lcp:CourseData>
+          <c2lcp:PackageProperties>
+            <c2lcp:CourseDisplay>
+              <c2lcp:ColorNav>
+                <c2lcp:Light />
+                <c2lcp:Medium />
+                <c2lcp:Dark />
+              </c2lcp:ColorNav>
+              <c2lcp:ColorData>
+                <c2lcp:Light />
+                <c2lcp:Medium />
+                <c2lcp:Dark />
+              </c2lcp:ColorData>
+              <c2lcp:ShowNavBar>no</c2lcp:ShowNavBar>
+              <c2lcp:TOC>
+                <c2lcp:MaxLevels>0</c2lcp:MaxLevels>
+                <c2lcp:MaxWidth>0</c2lcp:MaxWidth>
+                <c2lcp:ScrollBar>no</c2lcp:ScrollBar>
+                <c2lcp:TreeOpenIcon width="9" height="9" />
+                <c2lcp:TreeCloseIcon width="9" height="9" />
+                <c2lcp:TopImage width="-1" height="-1" />
+                <c2lcp:BottomImage width="-1" height="-1" />
+                <c2lcp:BackgroundColor>ffffff</c2lcp:BackgroundColor>
+              </c2lcp:TOC>
+            </c2lcp:CourseDisplay>
+            <c2lcp:Launch>
+              <c2lcp:Width>800</c2lcp:Width>
+              <c2lcp:Height>600</c2lcp:Height>
+              <c2lcp:AllowResize>yes</c2lcp:AllowResize>
+            </c2lcp:Launch>
+            <c2lcp:GlobalData />
+          </c2lcp:PackageProperties>
+        </c2lcp:CourseData>
+      </c2lcp:ItemSpecificData>
+    </c2lcp:ItemData>
+  </c2lcp:ItemDataExtra>
+</manifest>

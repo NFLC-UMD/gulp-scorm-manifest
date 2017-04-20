@@ -8,19 +8,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/techchristie/gulp-scorm-manifest"
+    "url": "https://github.com/anepaul/gulp-scorm-manifest"
   },
   "keywords": [
     "scorm",
     "manifest",
     "gulp"
   ],
-  "author": "Ryan Matsikas",
   "license": "MIT",
   "dependencies": {
-    "xmlbuilder": "^2.2.1",
     "gulp-util": "^2.2.14",
+    "lodash": "^2.4.1",
     "through2": "^0.4.1",
-    "lodash": "^2.4.1"
+    "xml2js": "^0.4.17",
+    "xmlbuilder": "^2.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-xml2js": "^0.1.1"
   }
 }
