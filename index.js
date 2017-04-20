@@ -19,8 +19,11 @@ module.exports = function(options) {
     moduleTitle: 'Module Title',
     launchPage: 'index.html',
     path: 'data',
+    content: null,
     fileName: 'imsmanifest.xml'
   }, options);
+
+  console.log(content);
 
   var firstFile;
   
