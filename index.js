@@ -8,7 +8,7 @@ var through = require('through2');
 var xml2js = require('xml2js');
 var xmlBuilder = new xml2js.Builder();
 var _ = require('lodash');
-var sample_manifest = require('./sample_manifest.json');
+var sample_manifest = require('./scorm_files/sample_manifest.json');
 var scormFiles = ['adlcp_rootv1p2.xsd', 'lom_customelements.xsd',
     'c2l_cp_rootv1p1.xsd', 'c2l_md_rootv1p1.xsd', 'ims_xml.xsd',
     'ims_xml.xsd', 'imscp_rootv1p1p2.xsd', 'imsmd_rootv1p2p1.xsd'];
@@ -105,7 +105,7 @@ module.exports = function(options) {
 
     // additional scormfiles    
     scormFiles.forEach(function (scormFileName) {
-      this.push(createFile(fs.readFileSync('./' + scormFileName), scormFileName, firstFile.cwd, firstFile.base));
+      this.push(createFile(fs.readFileSync('./scorm_files/' + scormFileName), scormFileName, firstFile.cwd, firstFile.base));
       gutil.log('Generated', gutil.colors.blue(scormFileName));
     }, this);
 
