@@ -2,6 +2,8 @@
 
 > A Gulp plugin that generates a valid SCORM IMS manifest file.
 
+This is forked and modified for use in a tool for packaging Learning Objects.
+
 ## Getting Started
 This plugin requires Gulp `~0.4.2`
 
