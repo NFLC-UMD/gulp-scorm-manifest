@@ -65,7 +65,7 @@
                                     {
                                         "langstring": [
                                             {
-                                                "_": "This Assessment Object will help you assess your listening comprehension in French. The passages and questions are appropriate for ILR Level 3. ",
+                                                "_": "DESCRIPTION OF LEARNING OBJECT",
                                                 "$": {
                                                     "xml:lang": "x-none"
                                                 }
@@ -77,7 +77,7 @@
                                     {
                                         "langstring": [
                                             {
-                                                "_": "Thematic Unit: Social Media in Turkey",
+                                                "_": "LEARNING OBJECT TITLE",
                                                 "$": {
                                                     "xml:lang": "x-none"
                                                 }
@@ -87,7 +87,7 @@
                                     {
                                         "langstring": [
                                             {
-                                                "_": "Turkish",
+                                                "_": "LEARNING OBJECT LANGUAGE",
                                                 "$": {
                                                     "xml:lang": "x-none"
                                                 }
@@ -97,7 +97,7 @@
                                     {
                                         "langstring": [
                                             {
-                                                "_": "Thematic Unit",
+                                                "_": "LEARNING OBJECT PRODUCT TYPE",
                                                 "$": {
                                                     "xml:lang": "x-none"
                                                 }
@@ -598,7 +598,7 @@
                                     {
                                         "langstring": [
                                             {
-                                                "_": "Created under H98230-10-C-0151 FY14TTO3",
+                                                "_": "CONTRACT INFORMATION",
                                                 "$": {
                                                     "xml:lang": "x-none"
                                                 }

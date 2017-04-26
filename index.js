@@ -30,7 +30,7 @@ module.exports = function(options) {
   
   var fileName = options.fileName;
 
-  console.log(sample_manifest);
+  //console.log(sample_manifest);
 
   var xmlTokens = {
     scormType: 'adlcp:scormType',
@@ -91,12 +91,32 @@ module.exports = function(options) {
   function (cb) {
     if (!firstFile) { return cb(); }
 
+    // TODO this is where you would add the manifest information
+    // Example: xmlObj.manifest.<path to property> = <approprate_data>
     var xmlObj = sample_manifest;
     xmlObj.manifest.resources = {
       'resource': xmlTokens.fileArr
     };
-    // TODO this is where you would add the manifest information
-    // Example: xmlObj.manifest.<path to property> = <approprate_data>
+    try {
+      xmlObj.manifest.$.identifier = options.courseId;
+      xmlObj.manifest.metadata[0].lom[0].general[0].title[0].langstring[0]._ = options.loMetadata.title;
+      xmlObj.manifest.metadata[0].lom[0].general[0].catalogentry[0].entry[0].langstring[0]._ = options.courseId;
+      xmlObj.manifest.metadata[0].lom[0].general[0].description[0].langstring[0]._ = options.loMetadata.product.description;
+      xmlObj.manifest.metadata[0].lom[0].general[0].keyword[0].langstring[0]._ = options.loMetadata.title;
+      xmlObj.manifest.metadata[0].lom[0].general[0].keyword[1].langstring[0]._ = options.loMetadata.language;
+      xmlObj.manifest.metadata[0].lom[0].general[0].keyword[2].langstring[0]._ = options.loMetadata.product.name;
+      xmlObj.manifest.metadata[0].lom[0]["c2lmd:c2lextensionmd"][0]["c2lmd:lotype"] = options.loMetadata.product.name;
+      xmlObj.manifest.metadata[0].lom[0]["c2lmd:c2lextensionmd"][0]["c2lmd:modality"] = options.loMetadata.modality;
+      xmlObj.manifest.metadata[0].lom[0]["c2lmd:c2lextensionmd"][0]["c2lmd:proflevel"] = options.loMetadata.level;
+      xmlObj.manifest.metadata[0].lom[0]["c2lmd:c2lextensionmd"][0]["c2lmd:language"] = options.loMetadata.language;
+      xmlObj.manifest.metadata[0].lom[0]["c2lmd:c2lextensionmd"][0]["c2lmd:topic"] = options.loMetadata.topic;
+      xmlObj.manifest.metadata[0].lom[0].lifecycle[0].contribute[0].date[0].datetime[0] = options.loMetadata.dateInspected;
+      xmlObj.manifest.metadata[0].lom[0].educational[0].learningresourcetype[0].value[0].langstring[0]._ = options.loMetadata.product.learningresourcetype;
+      xmlObj.manifest.metadata[0].lom[0].rights[0].description[0].langstring[0]._ = options.loMetadata.contract;
+    }
+    catch(e){
+      this.emit('error', new PluginError('gulp-scorm-manifest', e.message));
+    }
     var xmlDoc = xmlBuilder.buildObject(xmlObj);
    
     // manifest file   
