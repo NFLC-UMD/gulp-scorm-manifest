@@ -22,7 +22,7 @@ module.exports = function(options) {
     moduleTitle: 'Module Title',
     launchPage: 'index.html',
     path: 'data',
-    content: new Object(),
+    loMetadata: new Object(),
     fileName: 'imsmanifest.xml'
   }, options);
 
@@ -105,17 +105,21 @@ module.exports = function(options) {
       xmlObj.manifest.metadata[0].lom[0].general[0].keyword[0].langstring[0]._ = options.loMetadata.title;
       xmlObj.manifest.metadata[0].lom[0].general[0].keyword[1].langstring[0]._ = options.loMetadata.language;
       xmlObj.manifest.metadata[0].lom[0].general[0].keyword[2].langstring[0]._ = options.loMetadata.product.name;
-      xmlObj.manifest.metadata[0].lom[0]["c2lmd:c2lextensionmd"][0]["c2lmd:lotype"] = options.loMetadata.product.name;
-      xmlObj.manifest.metadata[0].lom[0]["c2lmd:c2lextensionmd"][0]["c2lmd:modality"] = options.loMetadata.modality;
-      xmlObj.manifest.metadata[0].lom[0]["c2lmd:c2lextensionmd"][0]["c2lmd:proflevel"] = options.loMetadata.level;
-      xmlObj.manifest.metadata[0].lom[0]["c2lmd:c2lextensionmd"][0]["c2lmd:language"] = options.loMetadata.language;
-      xmlObj.manifest.metadata[0].lom[0]["c2lmd:c2lextensionmd"][0]["c2lmd:topic"] = options.loMetadata.topic;
+      xmlObj.manifest.metadata[0].lom[0].classification[0].keyword[1].langstring[0]._ = options.loMetadata.language;
+      xmlObj.manifest.metadata[0].lom[0].classification[0].keyword[2].langstring[0]._ = options.loMetadata.product.name;
+      xmlObj.manifest.metadata[0].lom[0].general[0]["c2lmd:c2lextensionmd"][0]["c2lmd:lotype"] = options.loMetadata.product.name;
+      xmlObj.manifest.metadata[0].lom[0].general[0]["c2lmd:c2lextensionmd"][0]["c2lmd:modality"] = options.loMetadata.modality;
+      xmlObj.manifest.metadata[0].lom[0].general[0]["c2lmd:c2lextensionmd"][0]["c2lmd:proflevel"] = options.loMetadata.level;
+      xmlObj.manifest.metadata[0].lom[0].general[0]["c2lmd:c2lextensionmd"][0]["c2lmd:language"] = options.loMetadata.language;
+      xmlObj.manifest.metadata[0].lom[0].general[0]["c2lmd:c2lextensionmd"][0]["c2lmd:topic"] = options.loMetadata.topic;
       xmlObj.manifest.metadata[0].lom[0].lifecycle[0].contribute[0].date[0].datetime[0] = options.loMetadata.dateInspected;
       xmlObj.manifest.metadata[0].lom[0].educational[0].learningresourcetype[0].value[0].langstring[0]._ = options.loMetadata.product.learningresourcetype;
       xmlObj.manifest.metadata[0].lom[0].rights[0].description[0].langstring[0]._ = options.loMetadata.contract;
+      xmlObj.manifest.organizations[0].organization[0].title = [options.loMetadata.title];
+      xmlObj.manifest.organizations[0].organization[0].item[0].title = [options.loMetadata.title];            
     }
     catch(e){
-      this.emit('error', new PluginError('gulp-scorm-manifest', e.message));
+      this.emit('error', new PluginError('gulp-scorm-manifest', "Error stack: "+e.stack));
     }
     var xmlDoc = xmlBuilder.buildObject(xmlObj);
    
@@ -125,7 +129,7 @@ module.exports = function(options) {
 
     // additional scormfiles    
     scormFiles.forEach(function (scormFileName) {
-      this.push(createFile(fs.readFileSync('./scorm_files/' + scormFileName), scormFileName, firstFile.cwd, firstFile.base));
+      this.push(createFile(fs.readFileSync(__dirname +'/scorm_files/' + scormFileName), scormFileName, firstFile.cwd, firstFile.base));
       gutil.log('Generated', gutil.colors.blue(scormFileName));
     }, this);
 

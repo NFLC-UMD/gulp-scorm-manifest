@@ -723,15 +723,15 @@
         "organizations": [
             {
                 "$": {
-                    "default": "Test101-org"
+                    "default": "course_1"
                 },
                 "organization": [
                     {
                         "$": {
-                            "identifier": "Test101-org"
+                            "identifier": "course_1"
                         },
                         "title": [
-                            "Dummy Test"
+                            "TITLE HERE"
                         ],
                         "item": [
                             {
@@ -740,7 +740,7 @@
                                     "identifierref": "resource_1"
                                 },
                                 "title": [
-                                    "AngularJS Test module"
+                                    "TITLE HERE"
                                 ]
                             }
                         ]
