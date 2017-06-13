@@ -197,7 +197,7 @@
         </copyrightandotherrestrictions>
         <!-- Add TTO Info (Make sure correct TTO number)-->
         <description>
-          <langstring xml:lang="x-none">Created under H98230-10-C-0151 FY14TTO3</langstring>
+          <langstring xml:lang="x-none">CONTRACT</langstring>
         </description>
         <!-- END Add TTO Info -->
       </rights>
@@ -276,8 +276,8 @@
               </c2lcp:TOC>
             </c2lcp:CourseDisplay>
             <c2lcp:Launch>
-              <c2lcp:Width>800</c2lcp:Width>
-              <c2lcp:Height>600</c2lcp:Height>
+              <c2lcp:Width>1024</c2lcp:Width>
+              <c2lcp:Height>768</c2lcp:Height>
               <c2lcp:AllowResize>yes</c2lcp:AllowResize>
             </c2lcp:Launch>
             <c2lcp:GlobalData />

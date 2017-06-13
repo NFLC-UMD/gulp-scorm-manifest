@@ -33,13 +33,13 @@ module.exports = function(options) {
   //console.log(sample_manifest);
 
   var xmlTokens = {
-    scormType: 'adlcp:scormType',
+    scormType: 'adlcp:scormtype',
     fileArr: {
       '$': {
         'identifier':  'resource_1',
         'type': 'webcontent',
         'href': (options.path ? options.path + "/" : "").replace(/\\/g, '/') + options.launchPage,
-        'adlcp:scormType': 'sco'
+        'adlcp:scormtype': 'sco'
       },
       file: []
     }
@@ -99,7 +99,7 @@ module.exports = function(options) {
     };
     try {
       xmlObj.manifest.$.identifier = options.courseId;
-      xmlObj.manifest.metadata[0].lom[0].general[0].title[0].langstring[0]._ = options.loMetadata.title;
+      xmlObj.manifest.metadata[0].lom[0].general[0].title[0].langstring[0]._ = options.loMetadata.title;      
       xmlObj.manifest.metadata[0].lom[0].general[0].catalogentry[0].entry[0].langstring[0]._ = options.courseId;
       xmlObj.manifest.metadata[0].lom[0].general[0].description[0].langstring[0]._ = options.loMetadata.product.description;
       xmlObj.manifest.metadata[0].lom[0].general[0].keyword[0].langstring[0]._ = options.loMetadata.title;
@@ -116,7 +116,13 @@ module.exports = function(options) {
       xmlObj.manifest.metadata[0].lom[0].educational[0].learningresourcetype[0].value[0].langstring[0]._ = options.loMetadata.product.learningresourcetype;
       xmlObj.manifest.metadata[0].lom[0].rights[0].description[0].langstring[0]._ = options.loMetadata.contract;
       xmlObj.manifest.organizations[0].organization[0].title = [options.loMetadata.title];
-      xmlObj.manifest.organizations[0].organization[0].item[0].title = [options.loMetadata.title];            
+      xmlObj.manifest.organizations[0].organization[0].item[0].title = [options.loMetadata.title];
+      for(let x=0;x<options.loMetadata.sources.length;x++){
+        let src = options.loMetadata.sources[x];
+        xmlObj.manifest.metadata[0].lom[0].general[0]["nflc:sources"].push({
+          "nflc:titleEnglish": src.titleEnglish
+        });
+      }         
     }
     catch(e){
       this.emit('error', new PluginError('gulp-scorm-manifest', "Error stack: "+e.stack));
