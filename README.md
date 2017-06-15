@@ -85,5 +85,12 @@ gulp.task('manifest', function() {
 });
 ```
 
+## Tagging latest
+In order for the tag called latest to actually represent the latest commit, run the following helper script.
+
+```shell
+sh tag.sh
+```
+
 ## Release History
   * 2014-05-06   v0.0.1   Initial plugin release.
