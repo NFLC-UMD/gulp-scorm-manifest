@@ -117,10 +117,10 @@ module.exports = function(options) {
       xmlObj.manifest.metadata[0].lom[0].rights[0].description[0].langstring[0]._ = options.loMetadata.contract;
       xmlObj.manifest.organizations[0].organization[0].title = [options.loMetadata.title];
       xmlObj.manifest.organizations[0].organization[0].item[0].title = [options.loMetadata.title];
-      xmlObj.manifest.metadata[0].lom[0].general[0]["nflc:sources"] = []; 
+      xmlObj.manifest.metadata[0].lom[0].general[0]["nflc:sources"] = [[]]; 
       for(let x=0;x<options.loMetadata.sources.length;x++){
         let src = options.loMetadata.sources[x];
-        xmlObj.manifest.metadata[0].lom[0].general[0]["nflc:sources"].push({
+        xmlObj.manifest.metadata[0].lom[0].general[0]["nflc:sources"][0].push({
           "nflc:titleEnglish": src.titleEnglish
         });
       }         

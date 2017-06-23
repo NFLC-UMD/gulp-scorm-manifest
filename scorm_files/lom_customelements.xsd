@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="http://www.langnet.org/xsd/lom_customelements"
+	targetNamespace="http://author.nflc.umd.edu/schema/learningobject/v1-0-0"
 	elementFormDefault="qualified" 
 	attributeFormDefault="unqualified">
-	<xs:element name="langnet">
+	<xs:element name="sources">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="section">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="classification" minOccurs="0" maxOccurs="unbounded">
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="description" />
-										<xs:element name="value" />
-									</xs:sequence>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
+				<xs:element name="titleEnglish" minOccurs="0" maxOccurs="unbounded">
+					<xs:simpleType>
+						<xs:restriction base="xs:string" />
+					</xs:simpleType>
+  				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
