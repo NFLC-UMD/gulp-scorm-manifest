@@ -22,9 +22,8 @@
                         "$": {
                             "xmlns": "http://www.imsglobal.org/xsd/imsmd_rootv1p2p1",
                             "xmlns:c2lmd": "http://www.sumtotalsystems.com/xsd/c2l_md_rootv1p1",
-                            "xmlns:nflc": "http://author.nflc.umd.edu/schema/learningobject/v1-0-0",
                             "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
-                            "xsi:schemaLocation": "http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.sumtotalsystems.com/xsd/c2l_md_rootv1p1 c2l_md_rootv1p1.xsd http://author.nflc.umd.edu/schema/learningobject/v1-0-0 lom_customelements.xsd"
+                            "xsi:schemaLocation": "http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.sumtotalsystems.com/xsd/c2l_md_rootv1p1 c2l_md_rootv1p1.xsd"
                         },
                         "general": [
                             {

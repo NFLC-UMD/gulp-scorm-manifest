@@ -9,7 +9,7 @@ var xml2js = require('xml2js');
 var xmlBuilder = new xml2js.Builder();
 var _ = require('lodash');
 var sample_manifest = require('./scorm_files/sample_manifest.json');
-var scormFiles = ['adlcp_rootv1p2.xsd', 'lom_customelements.xsd',
+var scormFiles = ['adlcp_rootv1p2.xsd',
     'c2l_cp_rootv1p1.xsd', 'c2l_md_rootv1p1.xsd', 'ims_xml.xsd',
     'ims_xml.xsd', 'imscp_rootv1p1p2.xsd', 'imsmd_rootv1p2p1.xsd'];
 
@@ -117,13 +117,6 @@ module.exports = function(options) {
       xmlObj.manifest.metadata[0].lom[0].rights[0].description[0].langstring[0]._ = options.loMetadata.contract;
       xmlObj.manifest.organizations[0].organization[0].title = [options.loMetadata.title];
       xmlObj.manifest.organizations[0].organization[0].item[0].title = [options.loMetadata.title];
-      xmlObj.manifest.metadata[0].lom[0].general[0]["nflc:sources"] = [[]]; 
-      for(let x=0;x<options.loMetadata.sources.length;x++){
-        let src = options.loMetadata.sources[x];
-        xmlObj.manifest.metadata[0].lom[0].general[0]["nflc:sources"][0].push({
-          "nflc:titleEnglish": src.titleEnglish
-        });
-      }         
     }
     catch(e){
       this.emit('error', new PluginError('gulp-scorm-manifest', "Error stack: "+e.stack));
