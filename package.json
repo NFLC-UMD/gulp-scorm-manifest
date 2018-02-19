@@ -1,6 +1,6 @@
 {
-  "name": "gulp-scorm-manifest",
-  "version": "0.6.7",
+  "name": "@umdnflc/gulp-scorm-manifest",
+  "version": "0.8",
   "description": "scorm manifest gulp task",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/anepaul/gulp-scorm-manifest"
+    "url": "https://github.com/NFLC-UMD/gulp-scorm-manifest"
   },
   "keywords": [
     "scorm",
