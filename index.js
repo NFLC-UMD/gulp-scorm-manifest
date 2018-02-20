@@ -1,5 +1,6 @@
 'use strict';
 
+const glob = require('glob');
 var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 var fs = require('fs');
@@ -8,15 +9,26 @@ var through = require('through2');
 var xml2js = require('xml2js');
 var xmlBuilder = new xml2js.Builder();
 var _ = require('lodash');
-var sample_manifest = require('./scorm_files/sample_manifest.json');
-var scormFiles = ['adlcp_rootv1p2.xsd',
-    'c2l_cp_rootv1p1.xsd', 'c2l_md_rootv1p1.xsd', 'ims_xml.xsd',
-    'ims_xml.xsd', 'imscp_rootv1p1p2.xsd', 'imsmd_rootv1p2p1.xsd'];
+var scormFiles = [
+  'imscp_rootv1p1p2.xsd', 
+  'adlcp_rootv1p2.xsd', 
+  'c2l_cp_rootv1p1.xsd', 
+  'ims_xml.xsd', 
+  'c2l_md_rootv1p1.xsd',
+  'imsmd_rootv1p2p1.xsd'
+];
+
 
 module.exports = function(options) {
+  if(options.version === '2004'){
+    var sample_manifest = require('./scorm_files/sample_manifest2004.json');
+
+  } else {
+    var sample_manifest = require('./scorm_files/sample_manifest.json');
+  }
 
   _.extend({
-    version: '2004',
+    version: '2004 or 1.2', // default assumes 1.2
     courseId: 'CourseID',
     SCOtitle: 'SCO Title',
     moduleTitle: 'Module Title',
@@ -33,7 +45,7 @@ module.exports = function(options) {
   //console.log(sample_manifest);
 
   var xmlTokens = {
-    scormType: 'adlcp:scormtype',
+    scormType: options.version === '2004' ? 'adlcp:scormType': 'adlcp:scormtype',
     fileArr: {
       '$': {
         'identifier':  'resource_1',
@@ -44,6 +56,9 @@ module.exports = function(options) {
       file: []
     }
   };
+  if(options.version === '2004') {
+    xmlTokens.fileArr.$['adlcp:scormType'] = 'sco';
+  }
 
   var addFile = function(file, lastmode, cb) {
     var fObj = {
@@ -127,11 +142,24 @@ module.exports = function(options) {
     this.push(createFile(new Buffer(xmlDoc), fileName, firstFile.cwd, firstFile.base));
     gutil.log('Generated', gutil.colors.blue(fileName));
 
-    // additional scormfiles    
-    scormFiles.forEach(function (scormFileName) {
-      this.push(createFile(fs.readFileSync(__dirname +'/scorm_files/' + scormFileName), scormFileName, firstFile.cwd, firstFile.base));
-      gutil.log('Generated', gutil.colors.blue(scormFileName));
-    }, this);
+    // additional scormfiles   
+    if(options.version === '2004') {
+      glob('./scorm_files/2004/*', function (err, scormFiles) {
+        if(err) {
+          this.emit('error', new PluginError('gulp-scorm-manifest', err));
+          return;
+        }
+        for (let file of scormFiles) {
+          this.push(createFile(fs.readFileSync(file), path.basename(file), firstFile.cwd, firstFile.base));
+          gutil.log('Generated', gutil.colors.blue(file));
+        }
+      });        
+    } else {
+      scormFiles.forEach(function (scormFileName) {
+        this.push(createFile(fs.readFileSync(__dirname +'/scorm_files/' + scormFileName), scormFileName, firstFile.cwd, firstFile.base));
+        gutil.log('Generated', gutil.colors.blue(scormFileName));
+      }, this);  
+    }
 
     return cb();
   });

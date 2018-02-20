@@ -1,6 +1,6 @@
 {
   "name": "@umdnflc/gulp-scorm-manifest",
-  "version": "0.8",
+  "version": "0.8.0",
   "description": "scorm manifest gulp task",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "glob": "^7.1.2",
     "gulp-util": "^2.2.14",
     "lodash": "^2.4.1",
     "through2": "^0.4.1",
