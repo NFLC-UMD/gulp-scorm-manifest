@@ -50,15 +50,12 @@ module.exports = function(options) {
       '$': {
         'identifier':  'resource_1',
         'type': 'webcontent',
-        'href': (options.path ? options.path + "/" : "").replace(/\\/g, '/') + options.launchPage,
-        'adlcp:scormtype': 'sco'
+        'href': (options.path ? options.path + "/" : "").replace(/\\/g, '/') + options.launchPage
       },
       file: []
     }
   };
-  if(options.version === '2004') {
-    xmlTokens.fileArr.$['adlcp:scormType'] = 'sco';
-  }
+  xmlTokens.fileArr.$[xmlTokens.scormType] = 'sco';
 
   var addFile = function(file, lastmode, cb) {
     var fObj = {
