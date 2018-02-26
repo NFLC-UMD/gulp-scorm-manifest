@@ -9,15 +9,6 @@ var through = require('through2');
 var xml2js = require('xml2js');
 var xmlBuilder = new xml2js.Builder();
 var _ = require('lodash');
-var scormFiles = [
-  'imscp_rootv1p1p2.xsd', 
-  'adlcp_rootv1p2.xsd', 
-  'c2l_cp_rootv1p1.xsd', 
-  'ims_xml.xsd', 
-  'c2l_md_rootv1p1.xsd',
-  'imsmd_rootv1p2p1.xsd'
-];
-
 
 module.exports = function(options) {
   if(options.version === '2004'){
@@ -138,26 +129,7 @@ module.exports = function(options) {
     // manifest file   
     this.push(createFile(new Buffer(xmlDoc), fileName, firstFile.cwd, firstFile.base));
     gutil.log('Generated', gutil.colors.blue(fileName));
-
-    // additional scormfiles   
-    if(options.version === '2004') {
-      glob('./scorm_files/2004/*', function (err, scormFiles) {
-        if(err) {
-          this.emit('error', new PluginError('gulp-scorm-manifest', err));
-          return;
-        }
-        for (let file of scormFiles) {
-          this.push(createFile(fs.readFileSync(file), path.basename(file), firstFile.cwd, firstFile.base));
-          gutil.log('Generated', gutil.colors.blue(file));
-        }
-      });        
-    } else {
-      scormFiles.forEach(function (scormFileName) {
-        this.push(createFile(fs.readFileSync(__dirname +'/scorm_files/' + scormFileName), scormFileName, firstFile.cwd, firstFile.base));
-        gutil.log('Generated', gutil.colors.blue(scormFileName));
-      }, this);  
-    }
-
+    
     return cb();
   });
 };
@@ -168,5 +140,5 @@ function createFile(buffer, fileName, cwd, base) {
       base: base,
       path: path.join(base, fileName),
       contents: buffer
-    });;
+    });
 }
